@@ -3,10 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel = "stylesheet" href = "/style.css"/>
+
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 <p> ${Result} </p>
+
 </body>
 </html>

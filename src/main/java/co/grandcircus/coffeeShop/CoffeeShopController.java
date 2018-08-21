@@ -18,12 +18,20 @@ public class CoffeeShopController {
 	}
 	
 	@RequestMapping("/coffeeshop-results")
-	public ModelAndView showMileageResults (@RequestParam("name")String name, @RequestParam("age")int age, 
+	public ModelAndView showMileageResults (@RequestParam("first-name")String name, @RequestParam("age")int age, 
 			@RequestParam("coffeeCups")int coffeeCups) {
+		
+		// construct a user from the URL params
+		User user = new User();
+		user.setName(name);
+		user.setAge(age);
+		user.setCoffeeCups(coffeeCups);
+		
 		ModelAndView mav = new ModelAndView("CoffeeShopResults");
-		mav.addObject("Name", name);
-		mav.addObject("UserAge", age);
-		mav.addObject("numCoffeeCups", coffeeCups);
+		mav.addObject("user", user);
+		
+		
+		
 		mav.addObject("Result", name + " is " + age + " years old, and drinks " + coffeeCups + " cups of coffee per day!");
 		
 		return mav;
