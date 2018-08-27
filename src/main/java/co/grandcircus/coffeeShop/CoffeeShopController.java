@@ -1,5 +1,6 @@
 package co.grandcircus.coffeeShop;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,7 +10,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class CoffeeShopController {
 
-	@RequestMapping ("/coffeeshop-form")
+	@Autowired
+	ItemDao itemDao;
+	
+	@RequestMapping ("/")
 	
 	public ModelAndView showForm() {
 		ModelAndView mav = new ModelAndView("CoffeeShopForm");
@@ -27,14 +31,14 @@ public class CoffeeShopController {
 		user.setAge(age);
 		user.setCoffeeCups(coffeeCups);
 		
-		ModelAndView mav = new ModelAndView("CoffeeShopResults");
-		mav.addObject("user", user);
+		ModelAndView mav = new ModelAndView("CoffeeShopResults");		
 		
 		
-		
-		mav.addObject("Result", name + " is " + age + " years old, and drinks " + coffeeCups + " cups of coffee per day!");
-		
+		mav.addObject("Result", name + " is " + age + " years old, and drinks " + coffeeCups + " cups of coffee per day!  "
+				+ "Please take a look at our coffee menu: ");
+		mav.addObject("items", itemDao.findAll()   );
 		return mav;
 	}
+	
 	
 }

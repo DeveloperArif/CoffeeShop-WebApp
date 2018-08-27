@@ -1,7 +1,13 @@
 package co.grandcircus.coffeeShop;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class User {
 	
+	@Id  @GeneratedValue
 	private String name;
 	private int age;
 	private int coffeeCups;
@@ -40,7 +46,10 @@ public class User {
 	public void setCoffeeCups(int coffeeCups) {
 		this.coffeeCups = coffeeCups;
 	}
-	
-		
 
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", age=" + age + ", coffeeCups=" + coffeeCups + "]";
+	}
+	
 }

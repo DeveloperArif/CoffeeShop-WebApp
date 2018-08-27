@@ -19,12 +19,12 @@
 <form action = "/coffeeshop-results" method = "post">  
 									<!-- post makes sure not to post the parameters at the URL
 									Get allows the parameters to be seen at the URL -->
-<h1> Welcome to my coffee shop!   Please register below :) </h1>
+<h1> Welcome to my coffee shop!   Please register below to view our menu :) </h1>
 <p> <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Coffee_break_%283457656569%29.jpg/800px-Coffee_break_%283457656569%29.jpg"/> </p>
 <p>
 <label>First Name:</label> <input name = "first-name" required minlength = "2" pattern = "[A-Z][a-z]*" /> </p>
 
-<p><label>Last Name:</label> <input name = "name" required minlength = "2" pattern = "[A-Z][a-z]*" /> </p>
+<p><label>Last Name:</label> <input name = "last-name" required minlength = "2" pattern = "[A-Z][a-z]*" /> </p>
 
 
 <p>
@@ -45,6 +45,7 @@ Email: <input type = "email" name = "email"/> </p>
 
 
 </form>
-
-</body></main>
+</main>
+<footer><a href="/item" class = "btn btn-primary">Admin</a></footer>
+</body>
 </html>
