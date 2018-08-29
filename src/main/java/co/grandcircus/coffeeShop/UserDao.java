@@ -1,6 +1,8 @@
 package co.grandcircus.coffeeShop;
 
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -28,8 +30,17 @@ public class UserDao {
 
 			
 			
-			public void create(User user) {
-				em.persist(user);
+			public void create(User users) {
+				em.persist(users);
+			}
+			
+			public List<User>findAll() {
+				return em.createQuery("FROM Task", User.class).getResultList();
+			}
+			
+			public User findById(Long id) {
+				return em.find(User.class, id);
+
 			}
 			
 		
